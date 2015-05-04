@@ -4,8 +4,11 @@
 
 $(function () {
 	$('#answer').css('text-align','right');
+	$('#answer').css('width','125px');
+//	$('#ac').css('text-align','center');
 	$('#answer').val(0);
 	localStorage.setItem('beforeValue',0);
+	localStorage.setItem('dotValue',0);
 	$('#cul_endFlag').val(0);
 });
 
@@ -15,6 +18,7 @@ function all_clear(){
 	$('#answer').val(0);
 	localStorage.setItem('beforeValue',0);
 	$('#cul_endFlag').val(0);
+	localStorage.setItem('dotValue',0);
 }
 
 //1をおした時のアクション
@@ -23,14 +27,28 @@ function one_add(){
 	nowValue = $('#answer').val();
 	//計算済みフラグの取得
 	cul_endFlag = $('#cul_endFlag').val();
+	//小数点フラグを取得する
+	dotValue = localStorage.getItem('dotValue');
 	//現在数値が入っているかを確認し追加する
 	if(cul_endFlag == 0){
 		if(nowValue.match(/^-?[0-9]+\.[0-9]+$/)){
-			nowValue = nowValue + 1;
+			if(dotValue == 1){
+				nowValue = nowValue + 1;
+			}else if(dotValue == 0){
+				nowValue = nowValue + 1;
+			}
 		}else if(nowValue == 0){
-			nowValue = 1;
+			if(dotValue == 1){
+				nowValue = nowValue + 1;
+			}else if(dotValue == 0){
+				nowValue = 1;
+			}
 		}else if(nowValue != 0){
-			nowValue = nowValue + 1;
+			if(dotValue == 1){
+				nowValue = nowValue + 1;
+			}else if(dotValue == 0){
+				nowValue = nowValue + 1;
+			}
 		}
 	}else if(cul_endFlag == 1){
 		nowValue = 1;
@@ -46,14 +64,31 @@ function two_add(){
 	nowValue = $('#answer').val();
 	//計算済みフラグの取得
 	cul_endFlag = $('#cul_endFlag').val();
+	//小数点フラグの取得
+	dotValue = localStorage.getItem('dotValue');
 	//現在数値が入っているかを確認し追加
 	if(cul_endFlag == 0){
 		if(nowValue.match(/^-?[0-9]+\.[0-9]+$/)){
-			nowValue = nowValue + 2;
+			//小数点フラグの確認
+			if(dotValue == 1){
+				nowValue = nowValue + 2;
+			}else if(dotValue == 0){
+				nowValue = nowValue + 2;
+			}
 		}else if(nowValue == 0){
-			nowValue = 2;
+			//小数点フラグの確認
+			if(dotValue == 1){
+				nowValue = nowValue + 2;
+			}else if(dotValue == 0){
+				nowValue = 2;
+			}
 		}else if(nowValue != 0){
-			nowValue = nowValue + 2;
+			//小数点フラグの確認
+			if(dotValue == 0){
+				nowValue = nowValue + 2;
+			}else if(dotValue == 1){
+				nowValue = nowValue + 2;
+			}
 		}
 	}else if(cul_endFlag == 1){
 		nowValue = 2;
@@ -69,14 +104,31 @@ function three_add(){
 	nowValue = $('#answer').val();
 	//計算済みフラグの取得
 	cul_endFlag = $('#cul_endFlag').val();
+	//小数点フラグの取得
+	dotValue = localStorage.getItem('dotValue');
 	//現在数値が入っているかを確認し追加
 	if(cul_endFlag == 0){
 		if(nowValue.match(/^-?[0-9]+\.[0-9]+$/)){
-			nowValue = nowValue + 3;
+			//小数点フラグの確認
+			if(dotValue == 1){
+				nowValue = nowValue + 3;
+			}else if(dotValue == 0){
+				nowValue = nowValue + 3;
+			}
 		}else if(nowValue == 0){
-			nowValue = 3;
+			//小数点フラグの確認
+			if(dotValue == 1){
+				nowValue = nowValue + 3;
+			}else if(dotValue == 0){
+				nowValue = 3;
+			}
 		}else if(nowValue != 0){
-			nowValue = nowValue + 3;
+			//小数点フラグの確認
+			if(dotValue == 1){
+				nowValue = nowValue + 3;
+			}else if(dotValue == 0){
+				nowValue = nowValue + 3;
+			}
 		}
 	}else if(cul_endFlag == 1){
 		nowValue = 3;
@@ -92,14 +144,28 @@ function four_add(){
 	nowValue = $('#answer').val();
 	//計算済みフラグの取得
 	cul_endFlag = $('#cul_endFlag').val();
+	//小数点フラグの取得
+	dotValue = localStorage.getItem('dotValue');
 	//現在数値が入っているかを確認し追加
 	if(cul_endFlag == 0){
 		if(nowValue.match(/^-?[0-9]+\.[0-9]+$/)){
-			nowValue = nowValue + 4;
+			if(dotValue == 1){
+				nowValue = nowValue + 4;
+			}else if(dotValue == 0){
+				nowValue = nowValue + 4;
+			}
 		}else if(nowValue == 0){
-			nowValue = 4;
+			if(dotValue == 1){
+				nowValue = nowValue + 4;
+			}else if(dotValue == 0){
+				nowValue = 4;
+			}
 		}else if(nowValue != 0){
-			nowValue = nowValue + 4;
+			if(dotValue == 0){
+				nowValue = nowValue + 4;
+			}else if(dotValue == 1){
+				nowValue = nowValue + 4;
+			}
 		}
 	}else if(cul_endFlag == 1){
 		nowValue = 4;
@@ -138,14 +204,28 @@ function six_add(){
 	nowValue = $('#answer').val();
 	//計算済みフラグの取得
 	cul_endFlag = $('#cul_endFlag').val();
+	//小数点フラグの取得
+	dotValue = localStorage.getItem('dotValue');
 	//現在数値が入っているかを確認し追加
 	if(cul_endFlag == 0){
 		if(nowValue.match(/^-?[0-9]+\.[0-9]+$/)){
-			nowValue = nowValue + 6;
+			if(dotValue == 1){
+				nowValue = nowValue + 6;
+			}else if(dotValue == 0){
+				nowValue = nowValue + 6;
+			}
 		}else if(nowValue == 0){
-			nowValue = 6;
+			if(dotValue == 1){
+				nowValue = nowValue + 6;
+			}else if(dotValue == 0){
+				nowValue = 6;
+			}
 		}else if(nowValue != 0){
-			nowValue = nowValue + 6;
+			if(dotValue == 1){
+				nowValue = nowValue + 6;
+			}else if(dotValue == 0){
+				nowValue = nowValue + 6;
+			}
 		}
 	}else if(cul_endFlag == 1){
 		nowValue = 6;
@@ -161,14 +241,28 @@ function seven_add(){
 	nowValue = $('#answer').val();
 	//計算済みフラグの取得
 	cul_endFlag = $('#cul_endFlag').val();
+	//小数点フラグの取得
+	dotValue = localStorage.getItem('dotValue');
 	//現在数値が入っているかを確認し追加
 	if(cul_endFlag == 0){
 		if(nowValue.match(/^-?[0-9]+\.[0-9]+$/)){
-			nowValue = nowValue + 7
+			if(dotValue == 1){
+				nowValue = nowValue + 7
+			}else if(dotValue == 0){
+				nowValue = nowValue + 7
+			}
 		}else if(nowValue == 0){
-			nowValue = 7;
+			if(dotValue == 1){
+				nowValue = nowValue + 7
+			}else if(dotValue == 0){
+				nowValue = 7;
+			}
 		}else if(nowValue != 0){
-			nowValue = nowValue + 7
+			if(dotValue == 1){
+				nowValue = nowValue + 7
+			}else if(dotValue == 0){
+				nowValue = nowValue + 7
+			}
 		}
 	}else if(cul_endFlag == 1){
 		nowValue = 7;
@@ -184,14 +278,28 @@ function eight_add(){
 	nowValue = $('#answer').val();
 	//計算済みフラグの取得
 	cul_endFlag = $('#cul_endFlag').val();
+	//小数点フラグの取得
+	dotValue = localStorage.getItem('dotValue');
 	//現在数値が入っているかを確認し追加
 	if(cul_endFlag == 0){
 		if(nowValue.match(/^-?[0-9]+\.[0-9]+$/)){
-			nowValue = nowValue + 8;
+			if(dotValue == 1){
+				nowValue = nowValue + 8;
+			}else if(dotValue == 0){
+				nowValue = nowValue + 8;
+			}
 		}else if(nowValue == 0){
-			nowValue = 8;
+			if(dotValue == 1){
+				nowValue = nowValue + 8;
+			}else if(dotValue == 0){
+				nowValue = 8;
+			}
 		}else if(nowValue != 0){
-			nowValue = nowValue + 8;
+			if(dotValue == 1){
+				nowValue = nowValue + 8;
+			}else if(dotValue == 0){
+				nowValue = nowValue + 8;
+			}
 		}
 	}else if(cul_endFlag == 1){
 		nowValue = 8;
@@ -207,14 +315,28 @@ function nine_add(){
 	nowValue = $('#answer').val();
 	//計算済みフラグの取得
 	cul_endFlag = $('#cul_endFlag').val();
+	//小数点フラグの取得
+	dotValue = localStorage.getItem('dotValue');
 	//現在数値が入っているかを確認し追加
 	if(cul_endFlag == 0){
 		if(nowValue.match(/^-?[0-9]+\.[0-9]+$/)){
-			nowValue = nowValue + 9;
+			if(dotValue == 1){
+				nowValue = nowValue + 9;
+			}else if(dotValue == 0){
+				nowValue = nowValue + 9;
+			}
 		}else if(nowValue == 0){
-			nowValue = 9;
+			if(dotValue == 1){
+				nowValue = nowValue + 9;
+			}else if(dotValue == 0){
+				nowValue = 9;
+			}
 		}else if(nowValue != 0){
-			nowValue = nowValue + 9;
+			if(dotValue == 1){
+				nowValue = nowValue + 9;
+			}else if(dotValue == 0){
+				nowValue = nowValue + 9;
+			}
 		}
 	}else if(cul_endFlag == 1){
 		nowValue = 9;
@@ -230,14 +352,28 @@ function zero_add(){
 	nowValue = $('#answer').val();
 	//計算済みフラグの取得
 	cul_endFlag = $('#cul_endFlag').val();
+	//小数点フラグの取得
+	dotValue = localStorage.getItem('dotValue');
 	//現在数値が入っているかを確認し追加
 	if(cul_endFlag == 0){
 		if(nowValue.match(/^-?[0-9]+\.[0-9]+$/)){
-			nowValue = nowValue + 0;
+			if(dotValue == 1){
+				nowValue = nowValue + 0;
+			}else if(dotValue == 0){
+				nowValue = nowValue + 0;
+			}
 		}else if(nowValue == 0){
-			nowValue = 0;
+			if(dotValue == 1){
+				nowValue = nowValue + 0;
+			}else if(dotValue == 0){
+				nowValue = 0;
+			}
 		}else if(nowValue != 0){
-			nowValue = nowValue + 0;
+			if(dotValue == 1){
+				nowValue = nowValue + 0;
+			}else if(dotValue == 0){
+				nowValue = nowValue + 0;
+			}
 		}
 	}else if(cul_endFlag == 1){
 		nowValue = 0;
@@ -274,9 +410,15 @@ function multiply_cul(){
 	nowValue = parseFloat($('#answer').val());
 	//beforeValueの取得
 	beforeValue = parseFloat(localStorage.getItem('beforeValue'));
+	//小数点フラグの取得
+	dotValue = localStorage.getItem('dotValue');
 	//計算を行う
 	if(beforeValue != 0){
-		nowValue = parseFloat(beforeValue * nowValue);
+		if(dotValue == 0){
+			nowValue = parseInt(beforeValue * nowValue);
+		}else if(dotValue == 1){
+			nowValue = parseFloat(beforeValue * nowValue);
+		}
 	}
 	//localStorageに格納
 	localStorage.setItem('beforeValue',nowValue);
@@ -292,6 +434,7 @@ function minus_cul(){
 	nowValue = parseFloat($('#answer').val());
 	//beforeValueの取得
 	beforeValue = parseFloat(localStorage.getItem('beforeValue'));
+	//
 	//計算を行う
 	if(beforeValue != 0){
 		nowValue = parseFloat(beforeValue - nowValue);
@@ -327,12 +470,16 @@ function plus_cul(){
 function　dot_add(){
 	//現在数値の取得
 	nowValue = $('#answer').val();
+	//小数点フラグの設定
+	localStorage.setItem('dotValue',1);
 	//beforeValueの取得
 	beforeValue = localStorage.getItem('beforeValue');
 	//小数点の追加
 	nowValue = nowValue + ".";
 	//データの反映
 	$('#answer').val(nowValue);
+	//小数点フラグを立てる
+	localStorage.setItem('dotValue',1);
 }
 
 //=ボタンをおした時の処理
@@ -343,13 +490,27 @@ function goukei(){
 	beforeValue = parseFloat(localStorage.getItem('beforeValue'));
 	//キーの取得
 	nowKey = localStorage.getItem('beforeKey');
+	//小数点フラグの取得
+	dotValue = localStorage.getItem('dotValue');
 	//計算
 	if(nowKey == '+'){
-		nowValue = parseFloat(beforeValue + nowValue);
+		if(dotValue == 0){
+			nowValue = parseInt(beforeValue + nowValue);
+		}else if(dotValue == 1){
+			nowValue = parseFloat(beforeValue + nowValue);
+		}
 	}else if(nowKey == '-'){
-		nowValue = parseFloat(beforeValue - nowValue);
+		if(dotValue == 0){
+			nowValue = parseInt(beforeValue + nowValue);
+		}else if(dotValue == 1){
+			nowValue = parseFloat(beforeValue - nowValue);
+		}
 	}else if(nowKey == '✕'){
-		nowValue = parseFloat(beforeValue * nowValue);
+		if(dotValue == 0){
+			nowValue = parseInt(beforeValue * nowValue);
+		}else if(dotValue == 1){
+			nowValue = parseFloat(beforeValue * nowValue);
+		}
 	}else if(nowKey == '÷'){
 		nowValue = parseFloat(beforeValue / nowValue);
 		nowValue = nowValue.toFixed(12);
